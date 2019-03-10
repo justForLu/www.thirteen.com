@@ -1,0 +1,21 @@
+    <div class="fixed-bar">
+        <div class="item-title">
+            <div class="subject">
+                <h3>插件应用</h3>
+                <h5></h5>
+            </div>
+            <ul class="tab-base nc-row">
+                {eq name="$Think.const.CONTROLLER_NAME.'@index'|is_check_access" value="1"}
+                <li><a href="{eq name="$Request.action" value="index"}javascript:void(0);{else /}{:U("Weapp/index")}{/eq}" class="tab {eq name="$Request.action" value="index"}current{/eq}"><span>插件列表</span></a></li>
+                {/eq}
+
+                {eq name="$Think.const.CONTROLLER_NAME.'@create'|is_check_access" value="1"}
+                <li><a href="{if condition="in_array($Request.action, array('create'))"}javascript:void(0);{else /}{:U("Weapp/create")}{/if}" class="tab {if condition="in_array($Request.action, array('create'))"}current{/if}"><span>开发插件</span></a></li>
+                {/eq}
+
+                {eq name="$Think.const.CONTROLLER_NAME.'@pack'|is_check_access" value="1"}
+                <li><a href="{if condition="in_array($Request.action, array('pack'))"}javascript:void(0);{else /}{:U("Weapp/pack")}{/if}" class="tab {if condition="in_array($Request.action, array('pack'))"}current{/if}"><span>打包插件</span></a></li>
+                {/eq}
+            </ul>
+        </div>
+    </div>

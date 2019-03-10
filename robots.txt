@@ -1,0 +1,17 @@
+#robots.txtforEyouCMS
+User-agent: *
+Disallow:
+Disallow: /*.php*
+Disallow: /*.js*
+Disallow: /*.css*
+Disallow: /data/ 
+Disallow: /extend/ 
+Disallow: /install/ 
+Disallow: /weapp/ 
+Disallow: /public/ 
+Disallow: /template/
+Disallow: /core/
+Disallow: /vendor/
+Disallow: /appli*
+Disallow: /adm*
+Sitemap: /sitemap.xml

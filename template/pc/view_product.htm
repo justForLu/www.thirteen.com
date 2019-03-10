@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <title>{$eyou.field.seo_title}</title> 
+  <meta name="renderer" content="webkit" /> 
+  <meta charset="utf-8" /> 
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=0,minimal-ui" /> 
+  <meta name="description" content="{$eyou.field.seo_description}" /> 
+  <meta name="keywords" content="{$eyou.field.seo_keywords}" /> 
+  <meta name="generator" content="eyoucms" data-variable="{eyou:global name='web_eyoucms' /}" /> 
+  <link href="{eyou:global name='web_cmspath' /}/favicon.ico" rel="shortcut icon" type="image/x-icon" /> 
+  <link rel="stylesheet" type="text/css" href="{eyou:global name='web_templets_pc' /}/skin/css/basic.css" /> 
+  <link rel="stylesheet" type="text/css" href="{eyou:global name='web_templets_pc' /}/skin/css/common.css" /> 
+  <style>
+    body{background-position: center;background-repeat: no-repeat;background-color: ;font-family:;}
+  </style> 
+    <!--[if lte IE 9]>
+    <script src="{eyou:global name='web_templets_pc' /}/skin/js/lteie9.js"></script>
+    <![endif]--> 
+ </head> 
+ <!--[if lte IE 8]>
+    <div class="text-xs-center m-b-0 bg-blue-grey-100 alert">
+    <button type="button" class="close" aria-label="Close" data-dismiss="alert">
+        <span aria-hidden="true">×</span>
+    </button>
+    你正在使用一个 <strong>过时</strong> 的浏览器。请 <a href=https://browsehappy.com/ target=_blank>升级您的浏览器</a>，以提高您的体验。</div>
+<![endif]--> 
+ <body> 
+<!--header-s-->
+    {eyou:include file="header.htm"/}
+<!--header-e-->
+  <div class="met-banner-ny vertical-align text-center" m-id="banner"> 
+   <h1 class="vertical-align-middle">{$eyou.field.typename}</h1> 
+  </div> 
+  <section class="met-crumbs hidden-sm-down" m-id="met_position" m-type="nocontent"> 
+   <div class="container"> 
+    <div class="row"> 
+     <div class="border-bottom clearfix"> 
+      <ol class="breadcrumb m-b-0 subcolumn-crumbs breadcrumb-arrow"> 
+       <li class="breadcrumb-item"> 你的位置：{eyou:position style="crumb" /} </li> 
+      </ol> 
+     </div> 
+    </div> 
+   </div> 
+  </section> 
+  <section class="met-column-nav" m-id="subcolumn_nav" m-type="nocontent"> 
+   <div class="container"> 
+    <div class="row"> 
+     <ul class="clearfix met-column-nav-ul"> 
+      <li> <a href="{$eyou.field.ptypeurl}" title="全部" {eyou:gt name="$eyou.field.has_children" value="0"}class="active"{/eyou:gt}>全部</a> </li> 
+      {eyou:channel type="first" currentstyle="active" id="field"}
+      <li class="dropdown"> <a href="{$field.typeurl}" title="{$field.typename}" {eyou:gt name="$field.has_children" value="0"}class="dropdown-toggle" data-toggle="dropdown"{/eyou:gt}>{$field.typename}</a> 
+        {eyou:gt name="$field.has_children" value="0"}
+        <div class="dropdown-menu animate"> 
+          <a href="{$field.typeurl}" title="全部" class="dropdown-item ">全部</a> 
+          {eyou:channel name="$field.children" id="field2"}
+          <a href="{$field2.typeurl}" title="{$field2.typename}" class="dropdown-item ">{$field2.typename}</a> 
+          {/eyou:channel}
+        </div>
+        {/eyou:gt}
+      </li> 
+      {/eyou:channel}
+     </ul> 
+    </div> 
+   </div> 
+  </section> 
+  <main class="met-showproduct pagetype1 animsition" m-id="noset"> 
+   <div class="met-showproduct-head page-content block-bg"> 
+    <div class="container"> 
+     <div class="row"> 
+      <div class="col-lg-7"> 
+       <div class="met-showproduct-list fngallery cover text-xs-center" id="met-imgs-slick" m-id="noset" m-type="displayimgs"> 
+        {eyou:volist name="$eyou.field.image_list"}
+        <!--fngallery：启用lightGallery插件的类名--> 
+        <div class="slick-slide"> 
+         <a href="{$field.image_url}" data-size="400x400" data-med="{$field.image_url}" data-med-size="400x400" class="lg-item-box" data-src="{$field.image_url}" data-exthumbimage="{$field.image_url}" data-sub-html="{$eyou.field.title}"> 
+          <!--类名lg-item-box之前为initPhotoSwipeFromDOM插件所用参数；之后为lightGallery插件所用参数，lg-item-box：lightGallery插件对应的类名--> <img src="{$field.image_url}" class="img-fluid" alt="{$eyou.field.title}" /> </a> 
+        </div> 
+        {/eyou:volist}
+       </div> 
+      </div> 
+      <div class="col-lg-5"> 
+       <div class="product-intro"> 
+        <h1 class="m-t-0 font-size-24">{$eyou.field.title}</h1> 
+        <p class="description">{$eyou.field.seo_description}</p> 
+        <ul class="product-para paralist blocks-100 blocks-sm-2 blocks-md-3 blocks-lg-2"> 
+          {eyou:volist name="$eyou.field.attr_list"}
+          <li> <span>{$field.attr_name}：</span> {$field.attr_value} </li> 
+          {/eyou:volist}
+        </ul> 
+       </div> 
+      </div> 
+     </div> 
+    </div> 
+   </div> 
+   <div class="met-showproduct-body page-content"> 
+    <div class="container"> 
+     <div class="row"> 
+      <div class="col-lg-9 pull-lg-right"> 
+       <div class="row"> 
+        <div class="panel panel-body m-b-0 product-detail" boxmh-mh=""> 
+         <ul class="nav nav-tabs nav-tabs-line m-b-20 met-showproduct-navtabs"> 
+          <li class="nav-item"> <a class="nav-link active" data-toggle="tab" href="#product-content0" data-get="product-details">详细信息</a> </li> 
+         </ul> 
+         <article class="tab-content"> 
+          <section class="tab-pane met-editor clearfix animation-fade active" id="product-content0"> {$eyou.field.content}
+          </section>
+         </article> 
+         <div class="detail_tag font-size-14"> 
+          <span></span> 
+          <a href="" title=""></a> 
+         </div> 
+        </div> 
+       </div> 
+      </div> 
+      <div class="col-lg-3"> 
+       <div class="row"> 
+        <aside class="panel panel-body m-b-0 product-hot met-sidebar leftsidebar" boxmh-h="" m-id="product_bar"> 
+         <div class="sidebar-piclist"> 
+          <h3 class="m-0 font-size-16 font-weight-300">热门推荐</h3> 
+          <ul class="blocks-2 blocks-md-3 blocks-lg-100 m-t-20 text-xs-center imagesize sidebar-piclist-ul" data-scale="x">
+          {eyou:arclist row='3' titlelen='30' orderby="rand"}
+           <li class="masonry-child"> <a href="{$field.arcurl}" title="{$field.title}" class="block m-b-0" target="_blank"> <img data-original="{$field.litpic}" class="cover-image" alt="{$field.title}" height="100" src="{eyou:global name='web_templets_pc' /}/skin/images/ajax-loader.gif" /></a> <h4 class="m-t-10 m-b-0 font-size-14"> <a href="{$field.arcurl}" title="{$field.title}" target="_blank">{$field.title}</a> </h4> </li> 
+          {/eyou:arclist}
+          </ul> 
+         </div> 
+        </aside> 
+       </div> 
+      </div> 
+     </div> 
+    </div> 
+   </div> 
+  </main>
+  <!--footer-s-->
+  {eyou:include file="footer.htm" /}
+  <!--footer-e-->
+  <script type="text/javascript" src="{eyou:global name='web_templets_pc' /}/skin/js/lightgallery.js"></script>
+  <script type="text/javascript" src="{eyou:global name='web_templets_pc' /}/skin/js/lg-fullscreen.js"></script>
+  <script type="text/javascript" src="{eyou:global name='web_templets_pc' /}/skin/js/lg-thumbnail.js"></script>
+  <script type="text/javascript" src="{eyou:global name='web_templets_pc' /}/skin/js/lg-zoom.js"></script>
+  <script type="text/javascript" src="{eyou:global name='web_templets_pc' /}/skin/js/PhotoSwipe.js"></script>
+  <script type="text/javascript" src="{eyou:global name='web_templets_pc' /}/skin/js/PhotoSwipe.ui.js"></script>
+  <script type="text/javascript" src="{eyou:global name='web_templets_pc' /}/skin/js/Swiper.js"></script>
+  {eyou:ui open='off' /}
+ </body>
+</html>
