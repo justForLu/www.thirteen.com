@@ -1,4 +1,5 @@
 <IfModule mod_rewrite.c>
-    RewriteCond % !^$
-    RewriteRule ^.*\.(php|php3|php4|php5|php7|pht|phtml|asp|aspx|jsp|exe) - [F]
+  <FilesMatch "\.html$">
+    Deny from all
+  </FilesMatch> 
 </IfModule>
